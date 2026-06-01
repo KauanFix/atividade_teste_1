@@ -1,21 +1,21 @@
 <?php
 
-session_start();
+session_start(); 
 
-include("../infra/db/connect.php");
+include("../infra/db/connect.php"); //include aquela função do connect
 
-if (!isset($_SESSION["usuario"])) {
+if (!isset($_SESSION["usuario"])) { //se a sessão 'usuario' não existir, redireciona para o index
     header("location:../index.php");
     exit();
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuarios = $_POST["usuario"];
+if($_SERVER["REQUEST_METHOD"] == "POST") { //"no envio do formulário"
+    $usuarios = $_POST["usuario"]; //pega os dados do formulário de cadastro
     $senha = $_POST["senha"];
 
-    $sql = "INSERT INTO usuario (nome, senha) VALUES ('$usuarios', '$senha')";
+    $sql = "INSERT INTO usuario (nome, senha) VALUES ('$usuarios', '$senha')"; //insere os dados no banco
 
-    if($conn -> query($sql) === true) {
+    if($conn -> query($sql) === true) { //verifica se deu certo e alerta
         echo"<script>alert('Usuário Logado com sucesso!')</script>";
 }   else {
 echo"<script>alert('ERRO!')</script>";
@@ -59,7 +59,7 @@ echo"<script>alert('ERRO!')</script>";
 
     <?php
     
-    include("../public/component/table.php");
+    include("../public/component/table.php"); //pega a função de table.php
     
     
     ?>
