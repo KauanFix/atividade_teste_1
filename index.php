@@ -9,7 +9,7 @@ $db = "sistema_simples";
 
 $conn = new mysqli($host, $user, $pass, $db, 6608); //conexão com o Banco de Dados
 
-if ($conn->connect_error) {
+if ($conn->connect_error) { //if para verificar se foi realizada a conexão
     die("Erro na conexão");
 } else {
     echo ("<p> BD: ok </p>");
