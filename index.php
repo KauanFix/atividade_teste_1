@@ -15,24 +15,24 @@ if ($conn->connect_error) { //if para verificar se foi realizada a conexão
     echo ("<p> BD: ok </p>");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //if para executar no envio do formulário de login
 
-    $usuario = $_POST["usuario"];
+    $usuario = $_POST["usuario"]; //variáveis pegando os dados do formulário
     $senha = $_POST["senha"];
 
-    $sql = "SELECT * FROM usuario
+    $sql = "SELECT * FROM usuario 
     WHERE nome = '$usuario'
-    AND senha = '$senha'";
+    AND senha = '$senha'"; //variável para pegar do banco os dados que correspondem ao formulário
 
-    $resultado = $conn->query($sql);
+    $resultado = $conn->query($sql); //variável para consultar o banco de dados que possua a variável "$sql"
 
-    if ($resultado->num_rows > 0) {
+    if ($resultado->num_rows > 0) { //se a quantidade de linhas for maior que 0 (se existir) ele redireciona para a Home
         $_SESSION["usuario"] = $usuario;
 
         header("location: public/home.php");
         exit();
     } else {
-        $erro = "Usuario ou Senha Inválidos.";
+        $erro = "Usuario ou Senha Inválidos."; //erro para caso não encontre os dados
     }
 
 }
