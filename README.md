@@ -22,8 +22,8 @@ A organização dos arquivos do projeto segue a estrutura abaixo:
 ```text
 ATIVIDADE-TESTE-BANCO-PHP/
 ├── assets/
-|   ├── images/
-|       ├── lixeira_icon.png
+|   └── images/
+|       └── lixeira_icon.png
 ├── infra/
 │   ├── db/
 │   │   ├── connect.php     # Configuração e conexão com o banco de dados
