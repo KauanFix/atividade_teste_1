@@ -22,6 +22,7 @@
         <td>".$linha["id"]."</td>
         <td>".$linha["nome"]."</td>
         <td>".$linha["senha"]."</td>
+        <td><img src='assets/images/lixeira_icon' alt='excluir usuario'> </td>
 
         </tr>"; //cria uma nova linha na tabela com os dados do banco
     }
