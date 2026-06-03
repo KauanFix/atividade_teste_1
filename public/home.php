@@ -21,20 +21,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //"no envio do formulário"
         } else {
             echo "<script>alert('ERRO!')</script>";
         }
+        header("Location: home.php");
+        exit();
     }
 }
 
-if(isset($_POST["excluir"])) { //"quando postar o botão de name 'excluir' faça isso"
+if (isset($_POST["excluir"])) { //"quando postar o botão de name 'excluir' faça isso"
 
     $id = $_POST["excluirUsuario"]; //variável id pegar o post do select
 
     $sql = "DELETE FROM usuario WHERE id = $id"; //deleta tudo onde o id for igual do select
 
     if ($conn->query($sql) === true) { //verifica se deu certo e alerta
-            echo "<script>alert('Usuário Excluído com sucesso!')</script>";
-        } else {
-            echo "<script>alert('ERRO!')</script>";
-        }
+        echo "<script>alert('Usuário Excluído com sucesso!')</script>";
+    } else {
+        echo "<script>alert('ERRO!')</script>";
+    }
+    header("Location: home.php");
+    exit();
 }
 ?>
 
@@ -68,6 +72,7 @@ if(isset($_POST["excluir"])) { //"quando postar o botão de name 'excluir' faça
         <br>
         <br>
         <button type="submit" name="cadastrar">Entrar</button>
+        <br>
 
         <form method="POST">
             <label for="excluirUsuario">Selecione o ID para excluir o usuário</label>
@@ -86,7 +91,7 @@ if(isset($_POST["excluir"])) { //"quando postar o botão de name 'excluir' faça
                 ?>
 
             </select>
-            <button type='submit' name="excluir"> 
+            <button type='submit' name="excluir">
                 <img src='../assets/images/lixeira_icon.png' alt='excluir usuario' height='35px' width='35px'>
             </button>
         </form>
@@ -97,7 +102,7 @@ if(isset($_POST["excluir"])) { //"quando postar o botão de name 'excluir' faça
     <?php
 
     include("../public/component/table.php"); //pega a função de table.php
-
+    
     ?>
 
 </body>
